@@ -148,3 +148,89 @@ Fatores que contribuíram para o sucesso do Random Forest:
 - **Para experimentação**: Redes neurais oferecem mais flexibilidade arquitetural
 - **Para datasets pequenos**: Modelos mais simples podem ser mais eficazes
 - **Para datasets grandes**: Redes neurais tendem a se destacar
+
+
+# 🍌 Classificação do Grau de Maturação de Bananas com YOLOv8
+
+## 🎯 Objetivo do Projeto
+O objetivo deste projeto é desenvolver um modelo de **classificação de imagens** capaz de identificar o **grau de maturação de bananas**, classificando-as em diferentes estágios:  
+**freshripe**, **freshunripe**, **overripe**, **ripe**, **rotten** e **unripe**.  
+
+Essa solução visa **automatizar o processo de avaliação da qualidade das frutas**, podendo ser aplicada em contextos como:
+- Agricultura de precisão 🍃  
+- Controle de estoque em distribuidores e mercados 🏬  
+- Sistemas de inspeção automatizados 🧠  
+
+---
+
+## 🧰 Ferramentas Utilizadas
+- **Google Colab** — ambiente de execução e treinamento do modelo.  
+- **Ultralytics YOLOv8** — framework de visão computacional utilizado para classificação.  
+- **Roboflow** — utilizado para preparar, organizar e exportar o dataset de forma padronizada.  
+
+---
+
+## ⚙️ Hiperparâmetros e Configurações Principais
+
+| Parâmetro | Valor Utilizado | Descrição |
+|------------|----------------|------------|
+| `model` | `yolov8n-cls.pt` | Modelo base de classificação da Ultralytics |
+| `epochs` | **30** | Número de épocas de treino — ajustado para melhor desempenho |
+| `batch` | 4 | Tamanho do lote de imagens processadas por iteração |
+| `imgsz` | 320 | Tamanho das imagens utilizadas no treino |
+| `optimizer` | `auto` | Otimizador padrão configurado automaticamente |
+| `device` | GPU (Tesla T4 - Colab) | Aceleração do treinamento |
+
+> 🧠 Após o aumento para **30 epochs**, o modelo apresentou resultados mais consistentes e confiança mais alta nas previsões.
+
+---
+
+## 📊 Resultados e Desempenho
+
+- O modelo obteve **bom desempenho em testes de validação**, classificando corretamente as imagens.  
+- Para cada imagem, o resultado exibe:
+  - **Classe prevista** (ex: `freshunripe`)
+  - **Confiança da predição** (ex: `99.99%`)
+- O modelo mostrou excelente capacidade de distinguir entre estágios próximos, como *freshunripe* e *unripe*.  
+
+📈 Com o aumento de épocas e ajustes nos parâmetros, espera-se:
+- Maior **acurácia geral**
+- Melhor **generalização** para novas imagens
+- Redução de erros entre classes visualmente semelhantes
+
+---
+
+## 🗂️ Dataset Utilizado
+O dataset utilizado foi o **Banana Ripeness Classification Dataset**, disponível publicamente no Roboflow Universe:
+
+🔗 [Banana Ripeness Classification – Roboflow](https://universe.roboflow.com/roboflow-universe-projects/banana-ripeness-classification)
+
+O conjunto contém imagens de bananas em diferentes estágios de maturação, separadas em **treino** e **validação**, com pastas por classe.
+
+---
+
+## 📁 Estrutura do Projeto
+
+
+
+
+banana_dataset/
+├── train/
+│ ├── freshripe/
+│ ├── freshunripe/
+│ ├── overripe/
+│ ├── ripe/
+│ ├── rotten/
+│ └── unripe/
+└── valid/
+├── freshripe/
+├── freshunripe/
+├── overripe/
+├── ripe/
+├── rotten/
+└── unripe/
+
+
+
+
+
