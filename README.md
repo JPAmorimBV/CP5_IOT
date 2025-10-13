@@ -7,6 +7,7 @@
 | Lucas Fialho | 557884 |
 | Júlia Monteiro | 557023 |
 | João Amorim | 559213 |
+| Luiz Kamada | 557652 |
 
 # Treinamento de Redes Neurais com Keras
 
